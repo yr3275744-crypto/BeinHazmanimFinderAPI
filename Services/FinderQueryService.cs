@@ -2,6 +2,8 @@
 using BeinHazmanimFinderAPI.Repositories;
 using BeinHazmanimFinderAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
 
 namespace BeinHazmanimFinderAPI.Services;
 
@@ -75,11 +77,13 @@ public class FinderQueryService : IFinderQueryService
         return result;
         
     }
-    //public List<string> AccommodationsTypes()
-    //{
-    //    List<string> result = _accommodationRepository
-    //        .GetAll()
-    //        .GroupBy(a => a.AccommodationType)
-    //        .Select()
-    //}
+    public async Task<List<string>> AccommodationsTypes()
+    {
+        List<Accommodation> tempResult = await _accommodationRepository.GetAllAsync();
+        List<string> result = tempResult
+            .GroupBy(a => a.AccommodationType)
+            .Select(g => g.Key)
+            .ToList();
+        return result;
+    }
 }

@@ -9,5 +9,5 @@ public interface IFinderQueryService
         string? city,
         decimal? maxPrice,
         bool? accessible);
-    //public List<string> AccommodationsTypes();
+    Task<List<string>> AccommodationsTypes();
 }
