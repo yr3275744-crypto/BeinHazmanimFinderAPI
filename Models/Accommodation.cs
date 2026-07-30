@@ -1,6 +1,5 @@
-﻿namespace BeinHazmanimFinderAPI.Models
+﻿namespace BeinHazmanimFinderAPI.Models;
+
+public class Accommodation
 {
-    public class Accommodation
-    {
-    }
 }
