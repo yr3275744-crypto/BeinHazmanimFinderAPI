@@ -78,4 +78,10 @@ public class AccommodationsController : ControllerBase
         var result = _finderQueryService.AccommodationsSearch(city, maxPrice, accessible);
         return Ok(result);
     }
+    [HttpGet("types")]
+    public async Task<ActionResult<List<string>>> Types()
+    {
+        var result = await _finderQueryService.AccommodationsTypes();
+        return Ok(result);
+    }
 }
