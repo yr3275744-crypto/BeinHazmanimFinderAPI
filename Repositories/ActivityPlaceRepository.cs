@@ -1,9 +1,10 @@
 ﻿using BeinHazmanimFinderAPI.Models;
 using BeinHazmanimFinderAPI.Models.Enums;
+using BeinHazmanimFinderAPI.Repositories.Interfaces;
 
 namespace BeinHazmanimFinderAPI.Repositories;
 
-public class ActivityPlaceRepository
+public class ActivityPlaceRepository : IActivityPlaceRepository
 {
     private readonly List<ActivityPlace> _activityPlaces =
         [
@@ -29,7 +30,7 @@ public class ActivityPlaceRepository
             Category = "Restaurant",
             City = "Bnei Brak",
             Area = "Rabbi Akiva",
-            TargetAudience = TargetAudienceEnum.Adults,
+            TargetAudience = "Adults",
             PricePerPerson = 140,
             MinimumAge = 0,
             AvailableDate = new DateTime(2026-08-02),
@@ -54,6 +55,7 @@ public class ActivityPlaceRepository
     {
         activityPlace.Id = _nextId;
         _nextId++;
+        _activityPlaces.Add(activityPlace);
         return activityPlace;
     }
     public ActivityPlace? Update(int id, ActivityPlace activityPlace)

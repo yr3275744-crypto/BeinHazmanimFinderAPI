@@ -45,8 +45,16 @@ public class ActivityPlace
     [Required]
     [StringLength(30,
         ErrorMessage = "Invalid Target Audience. It must be less then 30 nots")]
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public TargetAudienceEnum TargetAudience { get; set; }
+    [AllowedValues([
+        "Families",
+        "Children",
+        "Youth",
+        "Adults",
+        "Men",
+        "Women"
+        ],
+        ErrorMessage = "Invalid Target Audience")]
+    public string TargetAudience { get; set; } = "";
 
     [Required]
     [Range(0, 1000,
@@ -67,7 +75,7 @@ public class ActivityPlace
     [Required]
     public bool RequiresKashrut { get; set; } = false;
 
-    [StringLength(50, 
+    [StringLength(50,
         ErrorMessage = "Invalid Kashrut Authority. It must be less then 50 nots")]
     public string? KashrutAuthority { get; set; }
 }

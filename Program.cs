@@ -8,6 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IAccommodationRepository, AccommodationRepository>();
+builder.Services.AddSingleton<IActivityPlaceRepository, ActivityPlaceRepository>();
 
 var app = builder.Build();
 
