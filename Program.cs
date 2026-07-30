@@ -1,5 +1,6 @@
 using BeinHazmanimFinderAPI.Repositories.Interfaces;
 using BeinHazmanimFinderAPI.Repositories;
+using BeinHazmanimFinderAPI.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IAccommodationRepository, AccommodationRepository>();
 builder.Services.AddSingleton<IActivityPlaceRepository, ActivityPlaceRepository>();
+builder.Services.AddScoped<IFinderQueryService, FinderQueryService>();
 
 var app = builder.Build();
 

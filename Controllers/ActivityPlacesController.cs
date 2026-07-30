@@ -1,6 +1,7 @@
 ﻿using BeinHazmanimFinderAPI.Models;
 using BeinHazmanimFinderAPI.Repositories;
 using BeinHazmanimFinderAPI.Repositories.Interfaces;
+using BeinHazmanimFinderAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeinHazmanimFinderAPI.Controllers;
@@ -10,9 +11,12 @@ namespace BeinHazmanimFinderAPI.Controllers;
 public class ActivityPlacesController : ControllerBase
 {
     private IActivityPlaceRepository _activityPlaceRepository;
-    public ActivityPlacesController(IActivityPlaceRepository activityPlaceRepository)
+    private IFinderQueryService _finderQueryService;
+    public ActivityPlacesController(IActivityPlaceRepository activityPlaceRepository,
+        IFinderQueryService finderQueryService)
     {
         _activityPlaceRepository = activityPlaceRepository;
+        _finderQueryService = finderQueryService;
     }
 
     [HttpGet]

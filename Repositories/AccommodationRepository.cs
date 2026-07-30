@@ -38,25 +38,27 @@ public class AccommodationRepository : IAccommodationRepository
         }
         ];
     private int _nextId = 3;
-    public List<Accommodation> GetAll()
+    public async Task<List<Accommodation>> GetAllAsync()
     {
         return _accommodations;
     }
-    public Accommodation? GetById(int id)
+    public async Task<Accommodation?> GetByIdAsync(int id)
     {
         Accommodation? accommodation = _accommodations
             .FirstOrDefault(accommodation => accommodation.Id == id);
         return accommodation;
     }
-    public Accommodation Create(Accommodation accommodation)
+    public async Task<Accommodation> CreateAsync(Accommodation accommodation)
     {
         accommodation.Id = _nextId;
         _nextId++;
+        _accommodations.Add(accommodation);
         return accommodation;
     }
-    public Accommodation? Update(int id, Accommodation accommodation)
+    public async Task<Accommodation?> UpdateAsync(int id, Accommodation accommodation)
     {
-        Accommodation? existing = GetById(id);
+        Accommodation? existing = _accommodations
+            .FirstOrDefault(accommodation => accommodation.Id == id);
         if (existing == null)
         {
             return null;
@@ -73,9 +75,10 @@ public class AccommodationRepository : IAccommodationRepository
         existing.IsAbroad = accommodation.IsAbroad;
         return existing;
     }
-    public bool Delete(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
-        Accommodation? existing = GetById(id);
+        Accommodation? existing = _accommodations
+            .FirstOrDefault(accommodation => accommodation.Id == id);
         if (existing == null)
         {
             return false;

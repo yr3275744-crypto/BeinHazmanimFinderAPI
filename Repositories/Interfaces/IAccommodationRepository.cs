@@ -4,10 +4,10 @@ namespace BeinHazmanimFinderAPI.Repositories.Interfaces;
 
 public interface IAccommodationRepository
 {
-    public List<Accommodation> GetAll();
-    public Accommodation? GetById(int id);
-    public Accommodation Create(Accommodation accommodation);
-    public Accommodation? Update(int id, Accommodation accommodation);
-    public bool Delete(int id);
+    public Task<List<Accommodation>> GetAllAsync();
+    public Task<Accommodation?> GetByIdAsync(int id);
+    public Task<Accommodation> CreateAsync(Accommodation accommodation);
+    public Task<Accommodation?> UpdateAsync(int id, Accommodation accommodation);
+    public Task<bool> DeleteAsync(int id);
 
 }
