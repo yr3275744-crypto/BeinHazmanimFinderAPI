@@ -5,14 +5,6 @@ namespace BeinHazmanimFinderAPI.Models;
 
 public class Accommodation
 {
-    //private readonly List<string> _validAccommodationType =
-    //    ["Hotel",
-    //    "Vacation Apartment",
-    //    "Guest House",
-    //    "Zimmer",
-    //    "Resort",
-    //    "Hostel"];
-    [Required]
     public int Id { get; set; }
 
     [Required]
@@ -68,7 +60,7 @@ public class Accommodation
         ErrorMessage = "Invalid Maximum guesses. It must be between 1 to 500")]
     public int MaximumGuests { get; set; }
 
-    [Required]
+    //[Required]
     public DateTime AvailableFrom { get; set; } = DateTime.UtcNow;
 
     [Required]
