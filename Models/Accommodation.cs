@@ -60,8 +60,8 @@ public class Accommodation
         ErrorMessage = "Invalid Maximum guesses. It must be between 1 to 500")]
     public int MaximumGuests { get; set; }
 
-    //[Required]
-    public DateTime AvailableFrom { get; set; } = DateTime.UtcNow;
+    [Required]
+    public DateTime AvailableFrom { get; set; }
 
     [Required]
     public bool IsAccessible { get; set; } = false;

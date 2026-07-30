@@ -58,7 +58,8 @@ public class ActivityPlace
         ErrorMessage = "Invalid minimum age. It must be 0 - 18")]
     public int MinimumAge { get; set; }
 
-    public DateTime AvailableDate { get; set; } = DateTime.UtcNow;
+    [Required]
+    public DateTime AvailableDate { get; set; }
 
     [Required]
     public bool IsAccessible { get; set; } = false;
