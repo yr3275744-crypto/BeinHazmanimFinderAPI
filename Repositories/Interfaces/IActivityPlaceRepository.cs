@@ -4,10 +4,10 @@ namespace BeinHazmanimFinderAPI.Repositories.Interfaces;
 
 public interface IActivityPlaceRepository
 {
-    public IEnumerable<ActivityPlace> GetAll();
+    public List<ActivityPlace> GetAll();
     public ActivityPlace? GetById(int id);
-    public ActivityPlace Create();
-    public ActivityPlace? Update(int id);
+    public ActivityPlace Create(ActivityPlace activityPlace);
+    public ActivityPlace? Update(int id, ActivityPlace activityPlace);
     public bool Delete(int id);
 
 }
