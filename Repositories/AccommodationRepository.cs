@@ -38,7 +38,7 @@ public class AccommodationRepository : IAccommodationRepository
         }
         ];
     private int _nextId = 3;
-    public IEnumerable<Accommodation> GetAll()
+    public List<Accommodation> GetAll()
     {
         return _accommodations;
     }
